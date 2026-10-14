@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crescent Foods | Crescent Public School Canteen Portal</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Strip -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <span class="pulse-badge">● LIVE CANTEEN PORTAL</span>
+      <p>No more 8:00 AM class teacher rush! Order comfortably online before <strong>10:00 AM</strong> when kitchen preparation begins.</p>
+    </div>
+  </div>
+
+  <!-- Sticky Website Navigation Header -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="brand" id="brandLink">
+        <div class="brand-logo">🌙</div>
+        <div class="brand-text">
+          <span class="brand-title">Crescent Foods</span>
+          <span class="brand-subtitle">Crescent Public School</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">Why Online?</a>
+        <a href="#order-section" class="nav-link">Order Food</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Logged-in Student Badge (Hidden until login) -->
+        <div class="student-badge hidden" id="studentNavBadge">
+          <span class="student-badge-id" id="navStudentIdDisplay">CPS-101</span>
+          <button class="btn-logout" id="studentLogoutBtn" title="Logout">Logout</button>
+        </div>
+
+        <!-- Admin Portal Toggle Button -->
+        <button class="btn-admin-switch" id="openAdminPortalBtn">
+          🛡️ Admin Portal
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MAIN PUBLIC & STUDENT WEBSITE VIEW
+       ========================================== -->
+  <main id="studentWebsiteView">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-content reveal-up">
+          <div class="school-pill">🏫 Crescent Public School Official Lunch Portal</div>
+          <h1>Fresh, Hot School Lunch <span class="gradient-text">Without the Morning Rush.</span></h1>
+          <p class="hero-description">
+            Previously, parents and students had to inform class teachers before 8:00 AM—creating a stressful morning rush even though kitchen preparations only start at <strong>10:00 AM</strong>. With <strong>Crescent Foods</strong>, login with your Student ID and book your meal in seconds!
+          </p>
+          <div class="hero-buttons">
+            <a href="#order-section" class="btn btn-primary btn-lg">
+              🍱 Order Lunch Now
+            </a>
+            <a href="#about" class="btn btn-outline btn-lg">
+              How It Works
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <strong>10:00 AM</strong>
+              <span>Kitchen Prep Cutoff</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <strong>3 Fresh Items</strong>
+              <span>Prepared Daily</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <strong>100% Live</strong>
+              <span>Direct to Canteen</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Floating Today's Menu Showcase Card -->
+        <div class="hero-visual reveal-up delay-1">
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <div>
+                <span class="showcase-tag">TODAY'S SCHOOL MENU</span>
+                <h3>Crescent Kitchen Specials</h3>
+              </div>
+              <div class="live-indicator">
+                <span class="dot"></span> Taking Orders
+              </div>
+            </div>
+
+            <div class="showcase-list">
+              <div class="showcase-item">
+                <div class="showcase-icon">🍗</div>
+                <div class="showcase-info">
+                  <h4>Half Biriyani</h4>
+                  <p>Fragrant Malabar dum rice with tender chicken piece</p>
+                </div>
+                <div class="showcase-price">₹100</div>
+              </div>
+
+              <div class="showcase-item">
+                <div class="showcase-icon">🍲</div>
+                <div class="showcase-info">
+                  <h4>Full Biriyani</h4>
+                  <p>Full portion aromatic biriyani with 2 pieces, egg & salad</p>
+                </div>
+                <div class="showcase-price">₹180</div>
+              </div>
+
+              <div class="showcase-item">
+                <div class="showcase-icon">🍛</div>
+                <div class="showcase-info">
+                  <h4>Standard School Meals</h4>
+                  <p>Steamed matta/white rice, sambar, thoran, kootu & curd</p>
+                </div>
+                <div class="showcase-price">₹60</div>
+              </div>
+            </div>
+
+            <div class="showcase-footer">
+              <span>⚡ Instant Firestore Sync to Canteen Admin</span>
+              <a href="#order-section">Login to Order →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CRESCENT FOODS SECTION -->
+    <section class="story-section" id="about">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-subtitle">SOLVING OUR MORNING RUSH</span>
+          <h2>Why Crescent Public School Moved Ordering Online</h2>
+          <p>Designed for parents, students, and teachers to make school mornings peaceful and organized.</p>
+        </div>
+
+        <div class="comparison-grid">
+          <div class="comparison-card old-way reveal-up">
+            <div class="card-badge badge-red">❌ Earlier System</div>
+            <h3>Before 8:00 AM Teacher Rush</h3>
+            <ul>
+              <li>Parents & students had to rush to inform class teachers before <strong>8:00 AM</strong>.</li>
+              <li>Class teachers faced heavy morning stress collecting names & counting cash during attendance.</li>
+              <li>Even though kitchen preparation started at <strong>10:00 AM</strong>, late morning requests were missed.</li>
+            </ul>
+          </div>
+
+          <div class="comparison-card new-way reveal-up delay-1">
+            <div class="card-badge badge-green">✅ Crescent Foods Website</div>
+            <h3>Direct Online Order Until 10:00 AM</h3>
+            <ul>
+              <li>Parents or students login anytime with their <strong>Student ID & Password</strong>.</li>
+              <li>Select <strong>Half Biriyani (₹100)</strong>, <strong>Full Biriyani (₹180)</strong>, or <strong>Meals (₹60)</strong> in two taps.</li>
+              <li>Orders go straight to the Canteen Admin phone with live item totals & cash summary!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGIN & FOOD ORDERING SECTION -->
+    <section class="order-section" id="order-section">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-subtitle">STUDENT & PARENT PORTAL</span>
+          <h2>Order Today's School Lunch</h2>
+          <p>Authenticate with your Student ID stored in Firestore to unlock the menu and place your order.</p>
+        </div>
+
+        <!-- STEP 1: STUDENT FIRESTORE LOGIN / REGISTER CARD -->
+        <div class="auth-wrapper reveal-up" id="studentAuthWrapper">
+          <div class="auth-card">
+            <div class="auth-tabs">
+              <button class="auth-tab active" id="tabLoginBtn" type="button">Student Login</button>
+              <button class="auth-tab" id="tabRegisterBtn" type="button">New Student ID? Register</button>
+            </div>
+
+            <div class="auth-body">
+              <div class="auth-icon-header">
+                <div class="auth-circle">🔐</div>
+                <div>
+                  <h3 id="authTitle">Student / Parent Login</h3>
+                  <p id="authSubtitle">Enter your Crescent Public School Student ID and Password</p>
+                </div>
+              </div>
+
+              <form id="studentAuthForm">
+                <div class="form-group">
+                  <label for="studentIdInput">Student ID</label>
+                  <input
+                    type="text"
+                    id="studentIdInput"
+                    placeholder="e.g., CPS-101"
+                    required
+                    autocomplete="username"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="studentPasswordInput">Password</label>
+                  <input
+                    type="password"
+                    id="studentPasswordInput"
+                    placeholder="Enter your password"
+                    required
+                    autocomplete="current-password"
+                  />
+                </div>
+
+                <div id="authErrorMsg" class="alert-box alert-error hidden"></div>
+                <div id="authSuccessMsg" class="alert-box alert-success hidden"></div>
+
+                <button type="submit" class="btn btn-primary btn-full" id="authSubmitBtn">
+                  Login & Unlock Food Menu →
+                </button>
+              </form>
+
+              <div class="demo-helper">
+                <span>Want to test immediately?</span>
+                <button type="button" class="btn-link" id="quickDemoStudentBtn">
+                  ✨ Auto-Fill Demo Student (CPS-101 / pass123)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: FOOD MENU SELECTION (Revealed smoothly after Firestore Login) -->
+        <div class="menu-wrapper hidden" id="foodMenuWrapper">
+          <div class="logged-in-banner">
+            <div class="banner-left">
+              <span class="verified-icon">✓</span>
+              <div>
+                <h4>Logged in as Student ID: <span id="activeStudentIdText">CPS-101</span></h4>
+                <p>Select quantities below. A checkout popup bar will appear automatically.</p>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" id="switchStudentBtn">
+              Change Student ID
+            </button>
+          </div>
+
+          <div class="menu-grid">
+            <!-- Food Item 1: Half Biriyani -->
+            <div class="food-card" data-id="halfBiriyani">
+              <div class="food-card-badge">Popular Choice</div>
+              <div class="food-emoji-wrap">🍗</div>
+              <div class="food-card-body">
+                <div class="food-title-row">
+                  <h3>Half Biriyani</h3>
+                  <span class="food-price">₹100</span>
+                </div>
+                <p class="food-desc">
+                  Ideal student portion of fragrant Malabar chicken dum biriyani served hot with raita and pickle.
+                </p>
+                <div class="food-controls">
+                  <button type="button" class="qty-btn minus" data-item="halfBiriyani">−</button>
+                  <span class="qty-value" id="qty-halfBiriyani">0</span>
+                  <button type="button" class="qty-btn plus" data-item="halfBiriyani">+ Add</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Food Item 2: Full Biriyani -->
+            <div class="food-card" data-id="fullBiriyani">
+              <div class="food-card-badge badge-gold">Hearty Portion</div>
+              <div class="food-emoji-wrap">🍲</div>
+              <div class="food-card-body">
+                <div class="food-title-row">
+                  <h3>Full Biriyani</h3>
+                  <span class="food-price">₹180</span>
+                </div>
+                <p class="food-desc">
+                  Generous full portion of aromatic basmati/kaima biriyani with two chicken pieces, boiled egg, salad & pickle.
+                </p>
+                <div class="food-controls">
+                  <button type="button" class="qty-btn minus" data-item="fullBiriyani">−</button>
+                  <span class="qty-value" id="qty-fullBiriyani">0</span>
+                  <button type="button" class="qty-btn plus" data-item="fullBiriyani">+ Add</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Food Item 3: Standard Meals -->
+            <div class="food-card" data-id="meals">
+              <div class="food-card-badge badge-green">Homestyle Daily</div>
+              <div class="food-emoji-wrap">🍛</div>
+              <div class="food-card-body">
+                <div class="food-title-row">
+                  <h3>Meals</h3>
+                  <span class="food-price">₹60</span>
+                </div>
+                <p class="food-desc">
+                  Nutritious Kerala school lunch meal with steamed rice, sambar, vegetable thoran, crispy pappadam & curd.
+                </p>
+                <div class="food-controls">
+                  <button type="button" class="qty-btn minus" data-item="meals">−</button>
+                  <span class="qty-value" id="qty-meals">0</span>
+                  <button type="button" class="qty-btn plus" data-item="meals">+ Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FLOATING POP-UP "PROCEED TO CHECKOUT" BAR
+       ========================================== -->
+  <div class="checkout-popup-bar hidden" id="checkoutPopupBar">
+    <div class="container checkout-bar-inner">
+      <div class="cart-summary-info">
+        <div class="cart-bag-icon">🛍️</div>
+        <div>
+          <span class="cart-items-label" id="cartItemsSummaryText">2 Items Added</span>
+          <strong class="cart-total-price" id="cartTotalAmountText">₹200</strong>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-checkout-trigger" id="proceedToCheckoutBtn">
+        Proceed to Checkout →
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       CHECKOUT MODAL (NAME, CLASS, DIVISION + UPI TICK)
+       ========================================== -->
+  <div class="modal-overlay hidden" id="checkoutModalOverlay">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="closeCheckoutModalBtn" aria-label="Close">✕</button>
+
+      <!-- STEP A: ENTER STUDENT DETAILS & CONFIRM -->
+      <div id="checkoutFormView">
+        <div class="modal-header">
+          <span class="modal-tag">FINAL STEP</span>
+          <h3>Student Delivery Details</h3>
+          <p>Enter the student's details to confirm the food order.</p>
+        </div>
+
+        <div class="order-mini-receipt" id="modalOrderReceiptList">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <form id="checkoutDetailsForm">
+          <div class="form-group">
+            <label for="checkoutStudentName">Name of the Student *</label>
+            <input
+              type="text"
+              id="checkoutStudentName"
+              placeholder="Enter full name of student"
+              required
+            />
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="checkoutStudentClass">Class *</label>
+              <select id="checkoutStudentClass" required>
+                <option value="" disabled selected>Select Class</option>
+                <option value="LKG">LKG</option>
+                <option value="UKG">UKG</option>
+                <option value="Class 1">Class 1</option>
+                <option value="Class 2">Class 2</option>
+                <option value="Class 3">Class 3</option>
+                <option value="Class 4">Class 4</option>
+                <option value="Class 5">Class 5</option>
+                <option value="Class 6">Class 6</option>
+                <option value="Class 7">Class 7</option>
+                <option value="Class 8">Class 8</option>
+                <option value="Class 9">Class 9</option>
+                <option value="Class 10">Class 10</option>
+                <option value="Class 11">Class 11</option>
+                <option value="Class 12">Class 12</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="checkoutStudentDivision">Division *</label>
+              <select id="checkoutStudentDivision" required>
+                <option value="" disabled selected>Select Division</option>
+                <option value="A">Division A</option>
+                <option value="B">Division B</option>
+                <option value="C">Division C</option>
+                <option value="D">Division D</option>
+                <option value="E">Division E</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="checkoutErrorMsg" class="alert-box alert-error hidden"></div>
+
+          <button type="submit" class="btn btn-confirm-order btn-full" id="confirmOrderBtn">
+            ✓ Confirm Order (<span id="confirmBtnAmount">₹0</span>)
+          </button>
+        </form>
+      </div>
+
+      <!-- STEP B: UPI-STYLE ANIMATED TICK CONFIRMATION -->
+      <div id="upiSuccessView" class="upi-success-container hidden">
+        <div class="upi-tick-wrapper">
+          <div class="upi-ripple ripple-1"></div>
+          <div class="upi-ripple ripple-2"></div>
+          <svg class="upi-svg" viewBox="0 0 80 80">
+            <circle class="upi-circle" cx="40" cy="40" r="36" fill="none" stroke-width="5" />
+            <path class="upi-check" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M24 42 L35 53 L57 29" />
+          </svg>
+        </div>
+
+        <h2 class="upi-amount-display" id="upiConfirmedAmount">₹100</h2>
+        <h3 class="upi-title">Order Confirmed!</h3>
+        <p class="upi-subtitle">Sent to Crescent Public School Canteen</p>
+
+        <div class="upi-receipt-box">
+          <div class="upi-receipt-row">
+            <span>Student Name</span>
+            <strong id="receiptStudentName">-</strong>
+          </div>
+          <div class="upi-receipt-row">
+            <span>Student ID</span>
+            <strong id="receiptStudentId">-</strong>
+          </div>
+          <div class="upi-receipt-row">
+            <span>Class & Division</span>
+            <strong id="receiptClassDiv">-</strong>
+          </div>
+          <div class="upi-receipt-row">
+            <span>Ordered Items</span>
+            <strong id="receiptItemsText">-</strong>
+          </div>
+          <div class="upi-receipt-row">
+            <span>Time</span>
+            <strong id="receiptTimeText">-</strong>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-full" id="newOrderAfterSuccessBtn">
+          Done & Back to Menu
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       ADMINISTRATIVE PORTAL (DESKTOP & PHONE VIEWER)
+       ========================================== -->
+  <section class="admin-portal-section hidden" id="adminPortalView">
+    <div class="container">
+      <div class="admin-top-bar">
+        <div>
+          <span class="section-subtitle">CRESCENT PUBLIC SCHOOL CANTEEN</span>
+          <h2>📱 Live Administrative Order Viewer</h2>
+        </div>
+        <button type="button" class="btn btn-outline" id="backToWebsiteBtn">
+          ← Back to Student Website
+        </button>
+      </div>
+
+      <!-- ADMIN LOGIN CARD -->
+      <div class="auth-card admin-login-card" id="adminLoginCard">
+        <div class="auth-icon-header">
+          <div class="auth-circle">🛡️</div>
+          <div>
+            <h3>Canteen Admin Access</h3>
+            <p>Login on your phone or computer to view live student food orders and total cash to collect.</p>
+          </div>
+        </div>
+
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label for="adminPasscodeInput">Admin Password</label>
+            <input
+              type="password"
+              id="adminPasscodeInput"
+              placeholder="Enter admin password (admin123)"
+              required
+            />
+          </div>
+          <div id="adminLoginError" class="alert-box alert-error hidden">
+            Incorrect admin password. Try: <strong>admin123</strong>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            Open Live Order Dashboard →
+          </button>
+        </form>
+        <div class="demo-helper">
+          <span>Default Admin Password: <strong>admin123</strong></span>
+        </div>
+      </div>
+
+      <!-- ADMIN LIVE DASHBOARD (Revealed after Admin Login) -->
+      <div class="admin-dashboard hidden" id="adminDashboardContent">
+
+        <!-- Live Sync Status & Filter Controls -->
+        <div class="admin-status-strip">
+          <div class="live-sync-pill">
+            <span class="dot"></span> Live Firestore Stream Connected (<span id="totalOrdersCountBadge">0</span> Orders)
+          </div>
+          <div class="admin-actions-right">
+            <input
+              type="text"
+              id="adminSearchInput"
+              class="admin-search-input"
+              placeholder="🔍 Search student name, ID, or class..."
+            />
+            <button type="button" class="btn btn-outline btn-sm" id="adminLogoutBtn">
+              Lock Admin
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 SUMMARY CARDS (Total Cash + Each Item Summary) -->
+        <div class="admin-summary-grid">
+          <div class="summary-card cash-card">
+            <span class="summary-label">💰 Total Cash to be Collected</span>
+            <h3 class="summary-value" id="adminTotalCash">₹0</h3>
+            <p class="summary-sub">Across all student orders</p>
+          </div>
+
+          <div class="summary-card">
+            <span class="summary-label">🍗 Total Half Biriyani</span>
+            <h3 class="summary-value" id="adminTotalHalfBiriyani">0</h3>
+            <p class="summary-sub">Portions (₹100 each)</p>
+          </div>
+
+          <div class="summary-card">
+            <span class="summary-label">🍲 Total Full Biriyani</span>
+            <h3 class="summary-value" id="adminTotalFullBiriyani">0</h3>
+            <p class="summary-sub">Portions (₹180 each)</p>
+          </div>
+
+          <div class="summary-card">
+            <span class="summary-label">🍛 Total Meals</span>
+            <h3 class="summary-value" id="adminTotalMeals">0</h3>
+            <p class="summary-sub">Portions (₹60 each)</p>
+          </div>
+        </div>
+
+        <!-- STUDENT ORDERS LIST (Phone-Friendly Cards + Desktop Table) -->
+        <div class="admin-orders-box">
+          <div class="admin-orders-header">
+            <h3>Individual Student Orders</h3>
+            <span class="admin-hint">Updates automatically on your phone as students order</span>
+          </div>
+
+          <div id="adminOrdersEmptyState" class="empty-orders-state">
+            <div class="empty-icon">📭</div>
+            <h4>No food orders placed yet</h4>
+            <p>As soon as a parent or student confirms an order, it will appear here instantaneously.</p>
+          </div>
+
+          <div class="admin-orders-list" id="adminOrdersList">
+            <!-- Populated in real-time by Firestore onSnapshot in script.js -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>🌙 Crescent Foods</strong> — Crescent Public School Canteen Ordering System
+      </div>
+      <div class="footer-meta">
+        Half Biriyani ₹100 • Full Biriyani ₹180 • Meals ₹60 | Powered by Firebase Firestore
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main Application Script (ES Module with Firebase v10 SDK) -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
